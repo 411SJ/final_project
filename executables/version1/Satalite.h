@@ -21,15 +21,17 @@ typedef struct Satalite
 
     unsigned int height;            // Numbers of Rows of the satalite fragment
 
-    unsigned int mapRowOrigin;      // Row Position on the larger map
+    unsigned int map_Row_Origin;    // Row Position on the map
   
-    unsigned int mapColOrigin;      // Columns position on the larger map
+    unsigned int map_Col_Origin;    // Columns position on the map
 
-    void *pixels;                   // Pointer to the pixel data that makes up the satalite fragment 
+    unsigned int data_size;         // Size of all the pixel data
+
+    void *pixels;                   // Pointer to the pixel data that makes up the satalite fragment
 
     vector<vector<char>> dat_list;  // 2D vector to store the data fragment
 
-    unsigned int image_selection;   // Marks which .dat file belongs to for image type
+    unsigned int map_index;         // Index of the map which this satalite belongs to
 
 } Satalite;
 
