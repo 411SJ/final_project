@@ -7,6 +7,12 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <stdlib.h>
+#include <stdio.h>
+#include <dirent.h>
+//#include <bits/stdc.h>
+#include <sys/stat.h>
+#include <sys/types.h>
 #include "Satalite.h"
 
 
@@ -33,14 +39,27 @@ Satalite dat_to_satalite(string dat_name_file)
         
 
         vector<char> temp_vector;
-
+        unsigned char* the_data;
+        the_data = (unsigned char*) malloc(satalite.width*satalite.height*5);
+        unsigned char* dest = the_data;
+        for (unsigned short i=0; i<satalite.height; i++)
+        {
+            for (unsigned short j=0; j<satalite.height; j++)
+            {
+                //fread(dest, 4*sizeof(char), 1, infile);
+                infile >> dest >> dest >> dest>> dest;
+                dest+=1;
+            }
+        }
+        satalite.pixels = the_data; 
+        /*
         for (char &c : line)
         {
             temp_vector.push_back(c);
         }
-        dat_struct.dat_list.push_back(temp_vector);
+        satalite.dat_list.push_back(temp_vector);
+        */
     }
-
-    image_list.Map_list.push_back(dat_struct);
-    return image_list;
+    //image_list.Map_list.push_back(dat_struct);
+    return satalite;
 }
