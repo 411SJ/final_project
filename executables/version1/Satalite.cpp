@@ -44,11 +44,15 @@ Satalite dat_to_satalite(string dat_name_file)
         unsigned char* dest = the_data;
         for (unsigned short i=0; i<satalite.height; i++)
         {
+            unsigned long offset = i*5*satalite.width;
             for (unsigned short j=0; j<satalite.height; j++)
             {
                 //fread(dest, 4*sizeof(char), 1, infile);
-                infile >> dest >> dest >> dest>> dest;
-                dest+=1;
+                infile >> dest[offset];
+                infile >> dest[offset+1];
+                infile >> dest[offset+2];
+                infile >> dest[offset+3];
+                dest+=5;
             }
         }
         satalite.pixels = the_data; 
