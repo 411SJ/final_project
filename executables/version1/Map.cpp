@@ -51,7 +51,8 @@ Map dat_reader(Map image_list, string dat_name_file)
         dat_struct.dat_list.push_back(temp_vector);
     }
     */
-   
+
+
 
     image_list.Map_list.push_back(dat_struct);
     return image_list;
