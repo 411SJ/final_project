@@ -12,11 +12,11 @@ RasterImage readImage(const char* filePath)
     unsigned short imgWidth;
     unsigned short imgHeight;
     ImageType imgType;
-
     if (strcmp(filePath + strlen(filePath) - 4, ".dat") &&
 		strcmp(filePath + strlen(filePath) - 4, ".DAT"))
 	{
 		cout << "Input file is not in DAT format" << endl;
+
 		exit(11);
 	}
 	
