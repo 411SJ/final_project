@@ -13,7 +13,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <dirent.h>
-#include <bits/stdc++.h>
+//#include <bits/stdc++.h>
 #include <sys/stat.h>
 #include <sys/types.h>
 //
@@ -29,6 +29,7 @@ using namespace std;
 // ==========================================================
 Map dat_reader(Map image_list, string dat_name_file)
 {
+    /*
     Satalite dat_struct;
     unsigned int idx, data_value1, data_value2, data_value3, data_value4;
 
@@ -49,6 +50,9 @@ Map dat_reader(Map image_list, string dat_name_file)
         }
         dat_struct.dat_list.push_back(temp_vector);
     }
+    */
+
+
 
     image_list.Map_list.push_back(dat_struct);
     return image_list;
@@ -83,7 +87,7 @@ file_name Listdir(const string &path, file_name file_struct)
 Map map_sort(Map image_list, unsigned int image_number){
     Map temp_map;
     for (vector<Satalite>::iterator dat = image_list.Map_list.begin(); dat != image_list.Map_list.end(); dat++){
-        if(image_number == dat->image_selection){
+        if(image_number == dat->map_index){
             temp_map.Map_list.push_back(*dat);
         }
     }
