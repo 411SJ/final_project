@@ -17,18 +17,12 @@ else
   LIB = -lrt
 endif
 
-all: flipV flipH main
+all: main
 
-flipV: ./ImageLibrary/applications/flipV_shm.cpp
-	g++ $(OPT_GCC) $(OPT) -o flipV $(INCLUDES) ./ImageLibrary/applications/flipV_shm.cpp $(SRC) $(LIB)
-
-flipH: ./ImageLibrary/applications/flipH_shm.cpp
-	g++ $(OPT_GCC) $(OPT) -o flipH $(INCLUDES) ./ImageLibrary/applications/flipH_shm.cpp $(SRC) $(LIB)
-
-main: ./ImageLibrary/applications/startMain.cpp 
+main: ./executables/version1/main.cpp 
 	g++ $(OPT_GCC) $(OPT) -o startMain $(INCLUDES) ./ImageLibrary/applications/startMain.cpp $(SRC) $(LIB)
 
-run: main flipV flipH
+run: main 
 	./startMain ./Images/Renoir.tga ./Output
 
 clean:

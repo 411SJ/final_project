@@ -1,5 +1,5 @@
 #!/bin/bash
-progDir='/executables/'
+progDir='../executables/'
 ##exeDir="${progDir}Executable"
 ##if [[ ! -d "$exeDir" ]]
 ##then
