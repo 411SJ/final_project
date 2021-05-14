@@ -51,10 +51,9 @@ Map dat_reader(Map image_list, string dat_name_file)
         dat_struct.dat_list.push_back(temp_vector);
     }
     */
-
-
-
-    image_list.Map_list.push_back(dat_struct);
+    Satalite sata;
+    sata = dat_to_satalite(dat_name_file);
+    image_list.Map_list.push_back(sata);
     return image_list;
 }
 

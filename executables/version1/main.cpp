@@ -35,9 +35,22 @@ void print_dat_file(Satalite dat_list);
 // ==========================================================
 //                      Helper Functions
 // ==========================================================
+/*
 void print_dat_file(Satalite dat_file)
 {
-    for (vector<char> &temp_vector : dat_file.dat_list)
+    for (vector<char> &temp_vector : dat_file.pixels)
+    {
+        for (char &c : temp_vector)
+        {
+            std::cout << c;
+        }
+        cout << '\n';
+    }
+}
+*/
+void print_dat_file(Satalite dat_file)
+{
+    for (vector<char> &temp_vector : dat_file.pixels)
     {
         for (char &c : temp_vector)
         {
@@ -74,7 +87,8 @@ int main(int argc, char *argv[])
     else
     {
         // must be replace by another directory using script
-        string input("/mnt/c/Users/Sour/OneDrive/Desktop/final_project-main/set_1/DataSet_1/.");
+        //string input("/mnt/c/Users/Sour/OneDrive/Desktop/final_project-main/set_1/DataSet_1/.");
+        string input("/home/jacobhampton/Documents/final_project/set_1/DataSet_1/.");
         file_struct = Listdir(input, file_struct);
 
         // reads the file and throws the satalie images into the Map Structure

@@ -38,7 +38,7 @@ Satalite dat_to_satalite(string dat_name_file)
         
         
 
-        vector<char> temp_vector;
+        //vector<char> temp_vector;
         unsigned char* the_data;
         the_data = (unsigned char*) malloc(satalite.width*satalite.height*5);
         unsigned char* dest = the_data;
