@@ -1,8 +1,8 @@
 // =========================================================
-//  Name:       Sourivong Thepsimoung & Jacob Hampton
-//  Professor:  Jean Herve
-//  Course:     CSC 412 Operating System
-//  Program:    Map.h
+///  Name:       Sourivong Thepsimoung & Jacob Hampton
+///  Professor:  Jean Herve
+///  Course:     CSC 412 Operating System
+///  Program:    Map.h
 // ==========================================================
 
 #ifndef MAP_H
@@ -12,7 +12,7 @@ using namespace std;
 #include <vector>
 //
 #include "Satalite.h"
-
+#include "Pixel.h"
 using namespace std;
 
 const unsigned char VALID = 1;
@@ -28,6 +28,7 @@ typedef struct Map
     unsigned width;
     unsigned height;
     vector<Satalite> Map_list;
+    vector<vector<Pixel>> image;
 } Map;
 
 
@@ -49,11 +50,13 @@ typedef struct Map_collection{
 }Map_collection;
 
 // ==========================================================
-//                      Prototypes
+///                      Prototypes
 // ==========================================================
 
 Map dat_reader(Map image_list, string dat_name_file);
 file_name Listdir(const string &path, file_name file_struct);
 Map map_sort(Map image_list, unsigned int image_number);
+void create_image(Map map);
+void map_to_TGA(Map map, string output_path);
 
 #endif

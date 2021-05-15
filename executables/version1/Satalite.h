@@ -1,19 +1,20 @@
 // =========================================================
-//  Name:       Sourivong Thepsimoung & Jacob Hampton
-//  Professor:  Jean Herve
-//  Course:     CSC 412 Operating System
-//  Program:    Satalite.h
+///  Name:       Sourivong Thepsimoung & Jacob Hampton
+///  Professor:  Jean Herve
+///  Course:     CSC 412 Operating System
+///  Program:    Satalite.h
 // ==========================================================
 
 #ifndef SATALITE_H
 #define SATALITE_H
 
 #include <vector>
+#include "Pixel.h"
 
 using namespace std;
 // =================================================================
-// This is the data type used to represent a satalite fragment
-// and store all the important information that is used by the Map.h
+/// This is the data type used to represent a satalite fragment
+/// and store all the important information that is used by the Map.h
 // =================================================================
 typedef struct Satalite
 {
@@ -31,9 +32,12 @@ typedef struct Satalite
 
     //vector<vector<char>> dat_list;  // 2D vector to store the data fragment
 
+    vector<vector<Pixel>> dat_list;  // 2D vector to store the data fragment
+
     unsigned int map_index;         // Index of the map which this satalite belongs to
 
 } Satalite;
+
 
 Satalite dat_to_satalite(string dat_name_file);
 

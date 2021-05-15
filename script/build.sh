@@ -7,10 +7,10 @@ cd .
 
 file1="output"
 file2="watch"
-if [[ ! -f $file1 ]] && [[  ! -f $file2 ]]
+if [[ ! -d $file1 ]] && [[  ! -d $file2 ]]
 then
-    mkdir watch
     mkdir output
+    mkdir watch
 fi
 
 FILE_OUTPUT="executables/version1/output/"
