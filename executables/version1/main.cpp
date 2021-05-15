@@ -9,6 +9,7 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <thread>
 //
 #include <stdlib.h>
 #include <stdio.h>
@@ -16,9 +17,12 @@
 #include <bits/stdc++.h>
 #include <sys/stat.h>
 #include <sys/types.h>
+#include <unistd.h>
+
 //
 #include "Satalite.h"
 #include "Map.h"
+
 
 using namespace std;
 
@@ -27,14 +31,10 @@ using namespace std;
 // ==========================================================
 void print_dat_file(Satalite dat_list);
 
-
-
-
-
-
 // ==========================================================
 //                      Helper Functions
 // ==========================================================
+/*
 void print_dat_file(Satalite dat_file)
 {
     for (vector<char> &temp_vector : dat_file.dat_list)
@@ -46,13 +46,12 @@ void print_dat_file(Satalite dat_file)
         cout << '\n';
     }
 }
-
+*/
 // ==========================================================
 //                      Main Program
 // ==========================================================
 int main(int argc, char *argv[])
 {
-    file_name file_struct;
 
     // storing standard inputs into variables
     string watch_folder = argv[1];
@@ -60,6 +59,7 @@ int main(int argc, char *argv[])
     int numMaps = atoi(argv[3]);
     Map image_list;
     Map temp_map;
+    file_name file_struct;
 
     // checks if the number of maps has its own width
     // and height included from the standard input
@@ -74,20 +74,24 @@ int main(int argc, char *argv[])
     else
     {
         // must be replace by another directory using script
-        string input("/mnt/c/Users/Sour/OneDrive/Desktop/final_project-main/set_1/DataSet_1/.");
+        string input("/home/kevin/Desktop/final_project-main/set_1/DataSet_1/.");
         file_struct = Listdir(input, file_struct);
 
         // reads the file and throws the satalie images into the Map Structure
         for (vector<toString>::iterator node = file_struct.my_file.begin() + 2; node != file_struct.my_file.end(); ++node)
         {
             //cout << node->s << endl;
-            string file = "/mnt/c/Users/Sour/OneDrive/Desktop/final_project-main/set_1/DataSet_1/" + node->s;
+            string file = "/home/kevin/Desktop/final_project-main/set_1/DataSet_1/" + node->s;
+
             image_list = dat_reader(image_list, file);
         }
 
         temp_map = map_sort(image_list, 1);
+        create_image(temp_map);
+        cout << "Image Created" << endl;
+        map_to_TGA(temp_map, output_folder);
         // prints the satalite vector
-        print_dat_file(image_list.Map_list.at(0));
+        // print_dat_file(image_list.Map_list.at(0));
         cout << "we are here." << endl;
     }
 
