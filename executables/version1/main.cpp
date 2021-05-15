@@ -74,16 +74,20 @@ int main(int argc, char *argv[])
     else
     {
         // must be replace by another directory using script
-        string input("/home/kevin/Desktop/final_project-main/set_1/DataSet_1/.");
+        //string input("/home/kevin/Desktop/final_project-main/set_1/DataSet_1/.");
+        string input("/home/jacobhampton/Documents/final_project/set_1/DataSet_1/");
         file_struct = Listdir(input, file_struct);
-
+        cout << "File struct made" << endl;
         // reads the file and throws the satalie images into the Map Structure
         for (vector<toString>::iterator node = file_struct.my_file.begin() + 2; node != file_struct.my_file.end(); ++node)
         {
             //cout << node->s << endl;
-            string file = "/home/kevin/Desktop/final_project-main/set_1/DataSet_1/" + node->s;
-
-            image_list = dat_reader(image_list, file);
+            string file = "/home/jacobhampton/Documents/final_project/set_1/DataSet_1/" + node->s;
+            //cout << file <<endl;
+            if(file.length() > input.length()+3){
+                image_list = dat_reader(image_list, file);
+            }
+            
         }
 
         temp_map = map_sort(image_list, 1);

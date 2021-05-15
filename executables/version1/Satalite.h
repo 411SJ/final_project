@@ -9,6 +9,7 @@
 #define SATALITE_H
 
 #include <vector>
+#include "Pixel.h"
 
 using namespace std;
 // =================================================================
@@ -31,9 +32,12 @@ typedef struct Satalite
 
     //vector<vector<char>> dat_list;  // 2D vector to store the data fragment
 
+    vector<vector<Pixel>> dat_list;  // 2D vector to store the data fragment
+
     unsigned int map_index;         // Index of the map which this satalite belongs to
 
 } Satalite;
+
 
 Satalite dat_to_satalite(string dat_name_file);
 

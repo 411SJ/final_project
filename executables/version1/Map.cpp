@@ -31,6 +31,7 @@ using namespace std;
 // ==========================================================
 Map dat_reader(Map image_list, string dat_name_file)
 {
+    //cout << dat_name_file << endl;
     Satalite sata;
     sata = dat_to_satalite(dat_name_file);
     image_list.Map_list.push_back(sata);

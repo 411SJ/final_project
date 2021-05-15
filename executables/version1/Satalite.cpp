@@ -35,6 +35,13 @@ Satalite dat_to_satalite(string dat_name_file)
     satalite.map_Col_Origin = data_value2;
     satalite.height = data_value3;
     satalite.width = data_value4;
+    /*
+    cout << idx << endl;
+    cout << data_value1 << endl;
+    cout << data_value2 << endl;
+    cout << data_value3 << endl;
+    cout << data_value4 << endl;
+    */
 
     /*
         unsigned char* the_data;
@@ -69,33 +76,63 @@ Satalite dat_to_satalite(string dat_name_file)
         satalite.dat_list.push_back(temp_vector);
     }
     */
-    int buff = 0;
+   /*
+    unsigned int buff = 0;
+    vector<Pixel> temp_vector;
     while(getline(infile, line)){
         unsigned char r=0,g=0,b=0;
-        vector<Pixel> temp_vector;
+        
         for (char &c : line)
         {
             switch(buff%4){
                 case 0:
                     r = c;
+                    cout << "R: " << r;
                     break;
                 case 1:
                     g = c;
+                    cout << " G: " << g;
                     break;
                 case 2:
                     b = c;
+                    cout << " B: " << b; 
                     break;
                 case 3:
                     temp_vector.push_back(create_pixel(r,g,b,c));
+                    cout << " Status: " << c << endl;
                     break;
                 default:
                 //This is impossible
                     break;
             }
             buff++;
+            if(buff == satalite.width){
+                satalite.dat_list.push_back(temp_vector);
+                buff=0;
+                temp_vector.clear();
+            } 
+        }
+    }
+    */
+    for(int i=0; satalite.height;i++){
+        unsigned int r=0,g=0,b=0;
+        unsigned int status=0;
+        vector<Pixel> temp_vector;
+        for (int j=0; satalite.width;j++)
+        {
+            infile >> r;
+            cout << "R: " << r;
+            infile >> g;
+            cout << " G: " << g;
+            infile >> b;
+            cout << " B: " << b;   
+            infile >> status;
+            cout << " Status: " << status << endl;
+            temp_vector.push_back(create_pixel(r,g,b,status));
         }
         satalite.dat_list.push_back(temp_vector);
     }
+    
     return satalite;
 }
 /*

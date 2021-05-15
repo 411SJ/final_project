@@ -16,14 +16,16 @@ const unsigned char OFF = 0;    //pixel is invalid
 
 struct Pixel
 {
-    unsigned char r;   //red value
+    unsigned int r;   //red value
 
-    unsigned char g;   //green value
+    unsigned int g;   //green value
 
-    unsigned char b;   //blue value
+    unsigned int b;   //blue value
 
-    unsigned char  status;  //weather or not pixel is valid will = 0/1
+    unsigned int  status;  //weather or not pixel is valid will = 0/1
 };
 
+Pixel create_pixel(unsigned int r,unsigned int g,unsigned int b,unsigned int status);
 
+Pixel average_pixel(Pixel pix1, Pixel pix2);
 #endif

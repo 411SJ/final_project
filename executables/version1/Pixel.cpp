@@ -1,6 +1,6 @@
 #include "Pixel.h"
 
-Pixel create_pixel(unsigned char r,unsigned char g,unsigned char b,unsigned char status){
+Pixel create_pixel(unsigned int r,unsigned int g,unsigned int b,unsigned int status){
     Pixel pix;
     pix.r = r;
     pix.g = g;
