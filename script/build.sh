@@ -1,37 +1,20 @@
 #!/bin/bash
-progDir='../executables/'
-##exeDir="${progDir}Executable"
-##if [[ ! -d "$exeDir" ]]
-##then
-##    echo `mkdir ${exeDir}`
-##fi
-##vr=$1
-for i in 1 2 3
-do
-    verDir="${progDir}version$i"
-    ##d="${verDir##*/}"
-    ##ex="${d/V/v}"
-    echo $verDir
-    ex="main.cpp"
-    final=""
-    for file in $verDir/*.cpp
-    do
-        ##f="${file##*/}"
-        ##op="${f%.cpp}"
-        echo $file
-        if [[ $op == $ex ]]
-        then
-            f="${file##*/}"
-            ##op="${f%.cpp}"
-            g++ -std=c++14 -Wall -lstdc++ -lpthread -c $file 
-        else
-            final=$file
-        fi
-    done
-    g++ -std=c++14 -Wall $final -lstdc++ -lpthread -o $ex *.o
-    ##if (($i == $vr)); then
-    ##    ./$ex "/home/jacobhampton/Prog06/Prog06/Data/testNode.txt"
-    ##fi 
-    ##mv $ex "$exeDir"
-    rm -f *.o
-done
+
+cd ..
+ls
+cd executables/version1/
+cd .
+
+file1="output"
+file2="watch"
+if [[ ! -f $file1 ]] && [[  ! -f $file2 ]]
+then
+    mkdir watch
+    mkdir output
+fi
+
+FILE_OUTPUT="executables/version1/output/"
+FILE_WATCH="executables/version1/watch"
+
+g++ -std=c++14 -Wall -Wextra -o main main.cpp Map.cpp Satalite.cpp tasks.cpp Pixel.cpp
+./main executables/version1/watch /home/kevin/Desktop/final_project-main/executables/version1/output/export.tga 3 300 450 200 320 400 480
