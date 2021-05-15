@@ -1,8 +1,8 @@
 // =========================================================
-//  Name:       Sourivong Thepsimoung & Jacob Hampton
-//  Professor:  Jean Herve
-//  Course:     CSC 412 Operating System
-//  Program:    satalite.cpp
+///  Name:       Sourivong Thepsimoung & Jacob Hampton
+/// Professor:  Jean Herve
+///  Course:     CSC 412 Operating System
+///  Program:    satalite.cpp
 // ==========================================================
 #include <string>
 #include <iostream>
@@ -18,8 +18,12 @@
 using namespace std;
 
 // =========================================================
-//
-//
+/// Takes path to .dat and creates a Satalite struct
+///
+/// .dat file data must be in the format
+/// map_index
+/// row_origin col_origin height width
+/// r g b status ... r g b status
 // ==========================================================
 Satalite dat_to_satalite(string dat_name_file)
 {
@@ -135,10 +139,14 @@ Satalite dat_to_satalite(string dat_name_file)
     
     return satalite;
 }
-/*
+
 // =========================================================
-//  creates a TGA file from the given map.
-//  places it into the output folder.
+/// creates a TGA file from the given satalite.
+///
+/// places it into the output folder.
+/// this function was made strictly for testing.
+/// not at all useful for final goal.
+/// not included in header for this reason.
 // ==========================================================
 void map_to_TGA(Satalite sata, string output_path)
 {
@@ -177,15 +185,15 @@ void map_to_TGA(Satalite sata, string output_path)
     //unsigned char* data  = (unsigned char*) raster;
     for (unsigned short i = 0; i < sata.height; i++)
     {
-        unsigned long offset = i * 4 * satap.width;
-        for (unsigned short j = 0; j < map.width; j++)
+        unsigned long offset = i * 4 * sata.width;
+        for (unsigned short j = 0; j < sata.width; j++)
         {
-            fwrite(&map.image.at(j).at(i).b, sizeof(char), 1, tga_out);
-            fwrite(&map.image.at(j).at(i).g, sizeof(char), 1, tga_out);
-            fwrite(&map.image.at(j).at(i).r, sizeof(char), 1, tga_out);
+            fwrite(&sata.dat_list.at(j).at(i).b, sizeof(char), 1, tga_out);
+            fwrite(&sata.dat_list.at(j).at(i).g, sizeof(char), 1, tga_out);
+            fwrite(&sata.dat_list.at(j).at(i).r, sizeof(char), 1, tga_out);
             offset += 4;
         }
     }
     fclose(tga_out);
 }
-*/
+

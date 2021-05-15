@@ -1,8 +1,8 @@
 // =========================================================
-//  Name:       Sourivong Thepsimoung & Jacob Hampton
-//  Professor:  Jean Herve
-//  Course:     CSC 412 Operating System
-//  Program:    Map.cpp
+///  Name:       Sourivong Thepsimoung & Jacob Hampton
+///  Professor:  Jean Herve
+///  Course:     CSC 412 Operating System
+///  Program:    Map.cpp
 // ==========================================================
 
 #include <iostream>
@@ -26,8 +26,8 @@
 using namespace std;
 
 // =========================================================
-//  Reads the .dat extension file and imports all the data
-//  into a Satalite Struct and then into the Map Struct
+///  Reads the .dat extension file and imports all the data
+///  into a Satalite Struct and then into the Map Struct
 // ==========================================================
 Map dat_reader(Map image_list, string dat_name_file)
 {
@@ -39,8 +39,8 @@ Map dat_reader(Map image_list, string dat_name_file)
 }
 
 // =========================================================
-//  Loops through the data set folder. take all of the file
-//  and store into a vector of strings for future directory
+///  Loops through the data set folder. take all of the file
+///  and store into a vector of strings for future directory
 // ==========================================================
 file_name Listdir(const string &path, file_name file_struct)
 {
@@ -64,8 +64,8 @@ file_name Listdir(const string &path, file_name file_struct)
 }
 
 // =========================================================
-//  loops through the data fragment structs and inputs all
-//  values with inputted idx into its own map structure
+///  loops through the data fragment structs and inputs all
+///  values with inputted idx into its own map structure
 // ==========================================================
 Map map_sort(Map image_list, unsigned int image_number)
 {
@@ -81,8 +81,8 @@ Map map_sort(Map image_list, unsigned int image_number)
 }
 
 // =========================================================
-//  creates the image after the map is sorted by indexes.
-//  positions the fragments into the correct spots.
+///  creates the image after the map is sorted by indexes.
+///  positions the fragments into the correct spots.
 // ==========================================================
 void create_image(Map map)
 {
@@ -124,8 +124,8 @@ void create_image(Map map)
 }
 
 // =========================================================
-//  creates a TGA file from the given map.
-//  places it into the output folder.
+///  creates a TGA file from the given map.
+///  places it into the output folder.
 // ==========================================================
 void map_to_TGA(Map map, string output_path)
 {
@@ -176,39 +176,3 @@ void map_to_TGA(Map map, string output_path)
     fclose(tga_out);
 }
 
-/*
-const char* produceOutFilePath(const char* inputImagePath, const char* outFolderPath)
-{
-	const char suffixPlusExt[] = " [out].tga";
-
-	// Produce the name of the output file
-	//-------------------------------------
-	//	First, find the start of the input file's name.  Start from the end
-	//	and move left until we hit the first slash or the left end of the string.
-	unsigned long index = strlen(inputImagePath) - 5;
-	while ((index>=1) && (inputImagePath[index-1] != '/'))
-		index--;
-	
-	//	Produce the name of the input file minus extension
-	char* inputFileRootName = (char*) malloc(strlen(inputImagePath+index) +1);
-	strcpy(inputFileRootName, inputImagePath+index);
-	//	chop off the extension by replacing the dot by '\0'
-	inputFileRootName[strlen(inputFileRootName)-4] = '\0';
-
-	char* outFilePath = (char*) malloc(strlen(outFolderPath) +
-										strlen(inputFileRootName) + strlen(suffixPlusExt) + 2);
-	strcpy(outFilePath, outFolderPath);
-	//	If outFolderPath didn't end with a slash, add it
-	if (outFolderPath[strlen(outFolderPath)-1] != '/')
-		strcat(outFilePath, "/");
-
-	//	Append root name to output path, add " [cropped].tga"
-	strcat(outFilePath, inputFileRootName);
-	strcat(outFilePath, suffixPlusExt);
-	
-	//	free heap-allocated data we don't need anymore
-	free(inputFileRootName);
-	
-	return outFilePath;
-}
-*/

@@ -1,8 +1,8 @@
 // =========================================================
-//  Name:       Sourivong Thepsimoung & Jacob Hampton
-//  Professor:  Jean Herve
-//  Course:     CSC 412 Operating System
-//  Program:    Map.h
+///  Name:       Sourivong Thepsimoung & Jacob Hampton
+///  Professor:  Jean Herve
+///  Course:     CSC 412 Operating System
+///  Program:    Map.h
 // ==========================================================
 
 #ifndef MAP_H
@@ -50,7 +50,7 @@ typedef struct Map_collection{
 }Map_collection;
 
 // ==========================================================
-//                      Prototypes
+///                      Prototypes
 // ==========================================================
 
 Map dat_reader(Map image_list, string dat_name_file);

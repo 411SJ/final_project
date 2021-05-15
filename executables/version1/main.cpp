@@ -1,8 +1,8 @@
 // =========================================================
-//  Name:       Sourivong Thepsimoung & Jacob Hampton
-//  Professor:  Jean Herve
-//  Course:     CSC 412 Operating System
-//  Program:    Main.cpp
+///  Name:       Sourivong Thepsimoung & Jacob Hampton
+/// Professor:  Jean Herve
+///  Course:     CSC 412 Operating System
+///  Program:    Main.cpp
 // ==========================================================
 
 #include <iostream>
@@ -27,12 +27,12 @@
 using namespace std;
 
 // ==========================================================
-//                      Prototypes
+///                      Prototypes
 // ==========================================================
 void print_dat_file(Satalite dat_list);
 
 // ==========================================================
-//                      Helper Functions
+///                      Helper Functions
 // ==========================================================
 /*
 void print_dat_file(Satalite dat_file)
@@ -48,7 +48,7 @@ void print_dat_file(Satalite dat_file)
 }
 */
 // ==========================================================
-//                      Main Program
+///                      Main Program
 // ==========================================================
 int main(int argc, char *argv[])
 {
